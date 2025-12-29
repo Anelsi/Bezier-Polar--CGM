@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PolarBezier — User Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.5; margin: 24px; max-width: 900px; }
+        code, pre { background: #f4f4f4; padding: 2px 6px; border-radius: 6px; }
+        pre { padding: 12px; overflow: auto; }
+        h1, h2 { margin-top: 28px; }
+        .box { background:#f7f7ff; border:1px solid #ddd; padding:12px; border-radius:10px; }
+    </style>
+</head>
+<body>
+<h1>PolarBezier (de Casteljau) — User Guide</h1>
+
+<div class="box">
+    <b>Какво е това:</b> JavaFX приложение за Bézier крива от произволен ред (n = брой контролни точки − 1),
+    оценяване и визуализация с алгоритъма на de Casteljau. Има избор на точки от екрана, anti-aliasing визуално
+    и режим “step forward”.
+</div>
+
+<h2>1) Изисквания</h2>
+<ul>
+    <li><b>JDK 17</b> (инсталиран на компютъра)</li>
+    <li>Проектът включва <b>Gradle Wrapper</b> (gradlew/gradlew.bat), не е нужно да се инсталира Gradle отделно</li>
+</ul>
+
+<h2>2) Стартиране (най-лесно) — от Windows с 1 клик</h2>
+<p>В корена на проекта има файл <code>run.bat</code>. Стартирайте го с двоен клик.</p>
+
+<h2>3) Стартиране през Terminal (Windows)</h2>
+<ol>
+    <li>Разархивирай проекта (ако е .zip)</li>
+    <li>Отвори Command Prompt в папката на проекта</li>
+    <li>Изпълни:</li>
+</ol>
+<pre>gradlew.bat run</pre>
+
+<h2>4) Стартиране през IntelliJ</h2>
+<ol>
+    <li>Open проекта</li>
+    <li>Gradle tool window → Tasks → application → <b>run</b></li>
+</ol>
+
+<h2>5) Как се използва приложението</h2>
+<ul>
+    <li><b>Ляв клик</b>: добавя контролна точка</li>
+    <li><b>Drag</b>: мести контролна точка</li>
+    <li><b>Десен клик върху точка</b>: трие точка</li>
+    <li><b>Clear</b>: изчиства всички контролни точки.</li>
+    <li><b>Degree (n)</b>: показва реда на кривата (n = points − 1)</li>
+    <li><b>t slider</b>: избира параметър t и показва точката B(t)</li>
+    <li><b>Show de Casteljau levels</b>: показва междинните нива на алгоритъма</li>
+    <li><b>Example 1/2/3</b>: зареждат готови контролни точки за бърза демонстрация на кривата.</li>
+    <li><b>Play</b>: рисува “стъпка напред”</li>
+</ul>
+
+<h2>6) Файлова структура</h2>
+<pre>
+src/main/java/org/example/Main.java  (основният код)
+build.gradle.kts                     (Gradle настройки + JavaFX)
+gradlew / gradlew.bat                (Gradle wrapper)
+gradle/wrapper/                      (wrapper jar + properties)
+run.bat                              (1-клик стартиране)
+docs/index.html                      (този user guide)
+</pre>
+
